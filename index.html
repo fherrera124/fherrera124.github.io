@@ -15,10 +15,12 @@
         }
 
         window.onload = function () {
-
-            fetch('http://feedinstagram.ddns.net/api/log-ip', {
-                method: 'POST'
-            })
+            fetch('http://https://defb-181-191-67-194.ngrok-free.app/api/log-ip', {
+                method: 'POST',
+                headers: new Headers({
+                    "ngrok-skip-browser-warning": "69420",
+                  }),
+                 })
                 .catch(error => {
                     console.error('An error ocurred:', error);
                 })
