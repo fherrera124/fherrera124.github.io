@@ -11,7 +11,7 @@
 
         function getQueryParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name).substring(1);
+            return urlParams.get(name);
         }
 
         window.onload = function () {
@@ -23,7 +23,7 @@
                     console.error('An error ocurred:', error);
                 })
                 .finally(() => {
-                    let originalPath = getQueryParameter('originalPath');
+                    let originalPath = getQueryParameter('url');
                     if (!originalPath.startsWith('https') && !originalPath.startsWith('http')) {
                         originalPath = "http://" + originalPath;
                     }
