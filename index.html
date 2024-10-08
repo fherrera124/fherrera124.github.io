@@ -27,7 +27,8 @@
                     if (!originalPath.startsWith('https') && !originalPath.startsWith('http')) {
                         originalPath = "http://" + originalPath;
                     }
-                    window.location.href = originalPath;
+                    console.warn(originalPath);
+                    //window.location.href = originalPath;
                 });
         };
     </script>
