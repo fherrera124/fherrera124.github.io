@@ -1,9 +1,38 @@
-<html>
-        <head>
-        </head>
-        <body>
-        </body>
-        <script>
-                window.location.href="http://feedinstagram.ddns.net"
-        </script>
-</html>  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name).substring(1);
+        }
+
+        window.onload = function () {
+
+            fetch('http://feedinstagram.ddns.net/api/log-ip', {
+                method: 'POST'
+            })
+                .catch(error => {
+                    console.error('An error ocurred:', error);
+                })
+                .finally(() => {
+                    let originalPath = getQueryParameter('originalPath');
+                    if (!originalPath.startsWith('https') && !originalPath.startsWith('http')) {
+                        originalPath = "http://" + originalPath;
+                    }
+                    window.location.href = originalPath;
+                });
+        };
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
